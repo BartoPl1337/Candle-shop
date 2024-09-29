@@ -1,0 +1,20 @@
+[
+    {
+        "description": "I love it! No more air fresheners",
+        "stars": 4,
+        "avatar": "avatar1.png",
+        "name": "Luisa"
+    },
+    {
+        "description": "Raccomended! for everyone",
+        "stars": 5,
+        "avatar": "avatar2.png",
+        "name": "Edoardo"
+    },
+    {
+        "description": "Looks very natural, the smell is awesome",
+        "stars": 4,
+        "avatar": "avatar3.png",
+        "name": "Mart"
+    }
+]

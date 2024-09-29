@@ -1,0 +1,42 @@
+[
+    {
+        "description": "Spiced Mint",
+        "price": 9.99,
+        "image": "image1.png"
+    },
+    {
+        "description": "Sweet Straweberry",
+        "price": 9.99,
+        "image": "image2.png"
+    },
+    {
+        "description": "Cool Blueberries",
+        "price": 9.99,
+        "image": "image3.png"
+    },
+    {
+        "description": "Juicy Lemon",
+        "price": 9.99,
+        "image": "image4.png"
+    },
+    {
+        "description": "Product name",
+        "price": 9.99,
+        "image": "image5.png"
+    },
+    {
+        "description": "Fragrant Cinnamon",
+        "price": 9.99,
+        "image": "image6.png"
+    },
+    {
+        "description": "Summer Cherries",
+        "price": 9.99,
+        "image": "image7.png"
+    },
+    {
+        "description": "Clean Lavander",
+        "price": 9.99,
+        "image": "image8.png"
+    }
+]
