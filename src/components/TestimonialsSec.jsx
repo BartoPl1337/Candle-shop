@@ -18,7 +18,7 @@ const TestimonialsSec = () => {
               <img src={testimonial.avatar} alt="" />
               <span className="flex text-[#5BC08A]">
                 {Array.from({ length: testimonial.stars }).map((_, i) => (
-                  <Star key={i} size={24} />
+                  <Star key={i} size={24} fill="#5BC08A" />
                 ))}
               </span>
               <span className="text-[#1D293F] font-medium text-2xl max-w-[250px]">{testimonial.description}</span>

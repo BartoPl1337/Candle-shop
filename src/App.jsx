@@ -1,24 +1,17 @@
-import React from "react"
-import Navigation from "./components/Navigation"
-import MainSec from "./components/MainSec"
-import ProductsSec from "./components/ProductsSec"
-import BenefitSec from "./components/BenefitSec"
-import TestimonialsSec from "./components/TestimonialsSec"
-import PopularSec from "./components/PopularSec"
-import FooterSec from "./components/FooterSec"
-function App() {
+import React from "react";
+import MainPage from "./Pages/MainPage";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Product from "./Pages/Product";
 
+function App() {
   return (
-    <>
-      <Navigation />
-      <MainSec />
-      <ProductsSec />
-      <BenefitSec />
-      <TestimonialsSec />
-      <PopularSec />
-      <FooterSec />
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/products" element={<Product />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

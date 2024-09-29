@@ -4,9 +4,9 @@ import React from "react";
 const FooterSec = () => {
   return (
     <div className="bg-[#272727] text-white">
-      {/* <hr className="w-full"/> */}
-      <div className="flex mx-80 py-32">
-        <div className="flex-1 space-y-2">
+      <div className="mx-80 pb-32 pt-24">
+        <div className="flex border-t-2 border-white pb-8">
+        <div className="flex-1 space-y-2 mt-8">
           <div className="flex items-center gap-2">
             <img
               src="candleaf.png"
@@ -22,7 +22,7 @@ const FooterSec = () => {
           </div>
         </div>
 
-        <div className="flex-1 flex">
+        <div className="flex-1 flex mt-8">
           <div className="flex flex-row flex-1">
             <ul className="space-y-4 text-[#E1E1E1] font-medium">
               <li className="text-[#56B280] font-medium">
@@ -74,6 +74,8 @@ const FooterSec = () => {
             </ul>
           </div>
         </div>
+        </div>
+       
       </div>
 
       <div className="bg-[#E5E5E5] py-4 px-80">
