@@ -9,7 +9,7 @@ const FooterSec = () => {
         <div className="flex-1 space-y-2 mt-8">
           <div className="flex items-center gap-2">
             <img
-              src="candleaf.png"
+              src="/candleaf.png"
               alt=""
               className="object-cover rounded-full bg-white"
             />

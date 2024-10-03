@@ -14,7 +14,7 @@ const TestimonialsSec = () => {
 
         <div className="grid grid-cols-3 grid-rows-1">
           {data.map((testimonial) => (
-            <div className="flex flex-col items-center p-6 text-center space-y-1">
+            <div className="flex flex-col items-center p-6 text-center space-y-1" >
               <img src={testimonial.avatar} alt="" />
               <span className="flex text-[#5BC08A]">
                 {Array.from({ length: testimonial.stars }).map((_, i) => (

@@ -1,5 +1,7 @@
 import React from "react";
 import data from "../data";
+import { Link } from "react-router-dom";
+
 const ProductsSec = () => {
   return (
     <div className="mx-80 my-28">
@@ -12,13 +14,19 @@ const ProductsSec = () => {
 
       <div className="grid grid-cols-4 grid-rows-2 gap-4 my-12">
         {data.map((product) => (
-          <button className="bg-[#F7F8FA] shadow-md">
-            <img src={product.image} alt="" className="object-cover"/>
-            <div className="bg-[#FFFFFF] p-3">
-              <h1 className="font-medium text-[#1D293F] text-start">{product.description}</h1>
-              <span className="text-[#56B280] flex justify-end font-medium text-xl">{product.price}$</span>
-            </div>
-          </button>
+          <Link to={`/products/${product.id}`} key={product.id}>
+            <button className="bg-[#F7F8FA] shadow-md">
+              <img src={product.image} alt="" className="object-cover" />
+              <div className="bg-[#FFFFFF] p-3">
+                <h1 className="font-medium text-[#1D293F] text-start">
+                  {product.description}
+                </h1>
+                <span className="text-[#56B280] flex justify-end font-medium text-xl">
+                  {product.price}$
+                </span>
+              </div>
+            </button>
+          </Link>
         ))}
       </div>
     </div>

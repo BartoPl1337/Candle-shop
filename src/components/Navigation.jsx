@@ -10,16 +10,19 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Link } from "react-router-dom";
+import { cartStore } from "@/atom";
+import { useAtom } from "jotai";
 
 const Navigation = () => {
+  const [cart, setCart] = useAtom(cartStore);
   return (
     <>
-      <nav className="my-6 mx-32 flex items-center">
+      <nav className=" border-b border-[#56B280]/20 py-6 px-32 flex items-center">
         <div className="flex-1 flex items-center">
-        <Link to="/" className="flex">
-          <img src="icon.png" alt="" />
-          <span className="text-[#56B280] font-bold text-2xl">Candleaf</span>
-        </Link>
+          <Link to="/" className="flex">
+            <img src="/icon.png" alt="" />
+            <span className="text-[#56B280] font-bold text-2xl">Candleaf</span>
+          </Link>
         </div>
         <NavigationMenu>
           <NavigationMenuList>
@@ -60,8 +63,9 @@ const Navigation = () => {
             <User />
           </a>
 
-          <Link to="/products">
-            <ShoppingBasket />
+          <Link to="/Cart" className="relative">
+            <ShoppingBasket className=""/>
+            <span className="absolute -top-2 right-1 bg-[#56B280] text-white text-sm font-semibold rounded-full h-4 w-4 flex items-center justify-center">{cart.length}</span>
           </Link>
         </div>
       </nav>
