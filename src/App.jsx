@@ -5,6 +5,8 @@ import Product from "./Pages/Product";
 import Cart from "./Pages/Cart";
 import Authentication from "./Pages/Authentication";
 import Shipping from "./Pages/Shipping";
+import PaymentSec from "./components/PaymentSec";
+import Thanks from "./Pages/Thanks";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/Cart" element={<Cart />} />
         <Route path="/Authentication" element={<Authentication />} />
         <Route path="/Shipping" element={<Shipping />} />
+        <Route path="/Payment" element={<PaymentSec />}/>
+        <Route path="/Thanks" element={<Thanks />} />
       </Routes>
     </Router>
   );
