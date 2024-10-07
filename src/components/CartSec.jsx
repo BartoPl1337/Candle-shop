@@ -21,9 +21,6 @@ const CartSec = () => {
       } else {
         setCart(
           cart.map((x) => {
-            if (x.quantity === 1) {
-              return cart.filter((x) => x.description !== item.description);
-            }
             return x.description === item.description
               ? { ...exist, quantity: exist.quantity - 1 }
               : x;

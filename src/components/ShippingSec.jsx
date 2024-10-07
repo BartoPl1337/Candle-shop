@@ -11,6 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { ScrollArea } from "@radix-ui/react-scroll-area";
 
 const ShippingSec = () => {
   const [cart, setCart] = useAtom(cartStore);
@@ -75,7 +76,7 @@ const ShippingSec = () => {
           <span className="font-medium text-xl">Shipping method</span>
           <div className="flex justify-between px-4 border rounded-md border-[#E5E5E5] py-4 mt-6 items-center">
             <div className="flex gap-6 items-center">
-              <Checkbox id="method" />
+              <Checkbox id="method" required/>
               <label htmlFor="method">Standard Shipping</label>
             </div>
             <span className="font-bold text-sm">Free</span>
@@ -100,6 +101,7 @@ const ShippingSec = () => {
 
       <div className="flex-1 bg-[#F2F2F2] px-32 h-screen pt-20">
         <div className="flex flex-col space-y-6">
+        <ScrollArea className="p-4 h-[450px]">
           {cart.map((item) => (
             <div className="flex gap-16">
               <div className="relative">
@@ -122,6 +124,7 @@ const ShippingSec = () => {
               </div>
             </div>
           ))}
+        </ScrollArea>
           <hr className="border-[#56B280]/20" />
         </div>
 

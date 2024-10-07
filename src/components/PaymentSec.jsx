@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -18,6 +18,7 @@ const PaymentSec = () => {
   const [cart, setCart] = useAtom(cartStore);
   const [userInfo, setUserInfo] = useAtom(userInformation);
   const { register, handleSubmit } = useForm();
+  const router = useNavigate();
   const onSubmit = (data) => {
     setUserInfo(data);
     router("/Thanks");
@@ -47,11 +48,13 @@ const PaymentSec = () => {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage href="">Shipping</BreadcrumbPage>
+              <BreadcrumbLink className="text-[#56B280]">
+                Shipping
+              </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href="">Payment</BreadcrumbLink>
+              <BreadcrumbPage>Payment</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
@@ -100,27 +103,27 @@ const PaymentSec = () => {
                 <input
                   type="text"
                   placeholder="Card Number"
-                  className="border placeholder:px-4 w-full py-2 text-[#898989] focus:outline-none"
+                  className="border indent-4 w-full py-2 text-[#898989] focus:outline-none"
                   {...register("cardNumber", { required: true })}
                 />
                 <input
                   type="text"
                   placeholder="Holder Name"
-                  className="border placeholder:px-4 w-full py-2 text-[#898989] focus:outline-none"
+                  className="border indent-4 w-full py-2 text-[#898989] focus:outline-none"
                   {...register("holderName", { required: true })}
                 />
                 <div className="flex gap-4">
                   <input
                     type="text"
                     placeholder="Expiration (MM/YY)"
-                    className="border placeholder:px-4 w-full py-2 text-[#898989] focus:outline-none "
-                    {...register("expiration", { required: false })}
+                    className="border indent-4 w-full py-2 text-[#898989] focus:outline-none "
+                    {...register("expiration", { required: true })}
                   />
                   <input
                     type="text"
                     placeholder="CVV"
-                    className="border placeholder:px-4 w-full py-2 text-[#898989] focus:outline-none "
-                    {...register("cvv", { required: false })}
+                    className="border indent-4 w-full py-2 text-[#898989] focus:outline-none "
+                    {...register("cvv", { required: true })}
                   />
                 </div>
               </div>
@@ -133,13 +136,13 @@ const PaymentSec = () => {
               <input
                 type="text"
                 placeholder="VAT number (optional)"
-                className="border border-[#898989] placeholder:px-4 w-full py-2 text-[#616161] focus:outline-none"
+                className="border border-[#898989] indent-4 w-full py-2 text-[#616161] focus:outline-none"
                 {...register("vatNumber", { required: false })}
               />
               <input
                 type="text"
                 placeholder="PEC (optional)"
-                className="border border-[#898989] placeholder:px-4 w-full py-2 text-[#616161] focus:outline-none"
+                className="border border-[#898989] indent-4 w-full py-2 text-[#616161] focus:outline-none"
                 {...register("pec", { required: false })}
               />
             </div>
@@ -161,25 +164,25 @@ const PaymentSec = () => {
               </span>
             </div>
           </div>
-        </form>
-        <div className="mb-10">
-          <div className="flex justify-between mt-16 items-center">
-            <Link to="/Shipping">
-              <button className="underline text-[#56B280] text-lg mt-4">
-                Back to shipping
-              </button>
-            </Link>
+          <div className="mb-10">
+            <div className="flex justify-between mt-16 items-center">
+              <Link to="/Shipping">
+                <button className="underline text-[#56B280] text-lg mt-4">
+                  Back to shipping
+                </button>
+              </Link>
 
-            <input
-              type="submit"
-              value="Pay now"
-              className="w-1/2 items-center py-2 px-11 bg-[#56B280] text-white border-2 rounded-lg flex justify-center font-semibold text-xl hover:bg-white hover:border-[#56B280] hover:text-[#56B280]"
-            />
+              <input
+                type="submit"
+                value="Pay now"
+                className="w-1/2 items-center py-2 px-11 bg-[#56B280] text-white border-2 rounded-lg flex justify-center font-semibold text-xl hover:bg-white hover:border-[#56B280] hover:text-[#56B280]"
+              />
+            </div>
           </div>
-        </div>
+        </form>
       </div>
 
-      <div className="flex-1 bg-[#F2F2F2] px-32 h-screen pt-20">
+      <div className="flex-1 bg-[#F2F2F2] px-32 max-h pt-20">
         <div className="flex flex-col space-y-6">
           {cart.map((item) => (
             <div className="flex gap-16">
@@ -210,7 +213,7 @@ const PaymentSec = () => {
           <input
             type="text"
             placeholder="Coupon code"
-            className="py-3 placeholder:px-4 w-3/4 border-[#A8A8A8] text-[#616161] text-sm"
+            className="py-3 indent-4 w-3/4 border-[#A8A8A8] text-[#616161] text-sm"
           />
           <button className="rounded-lg bg-[#A8A8A8] text-white px-6 py-3">
             Add code

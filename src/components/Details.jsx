@@ -12,16 +12,17 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useAtom } from "jotai";
 import { cartStore, getTotal, userInformation } from "@/atom";
 import { useForm } from "react-hook-form";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const Details = () => {
   const router = useNavigate();
   const { register, handleSubmit } = useForm();
   const [userInfo, setUserInfo] = useAtom(userInformation);
+  const [cart, setCart] = useAtom(cartStore);
   const onSubmit = (data) => {
     setUserInfo(data);
     router("/Shipping");
   };
-  const [cart, setCart] = useAtom(cartStore);
   return (
     <div className="flex">
       <div className="flex-1 px-32">
@@ -67,8 +68,8 @@ const Details = () => {
 
             <div className="flex flex-col space-y-2">
               <input
-              type="email"
-                className="border border-[#56B280] placeholder:px-4 w-full py-2 text-[#616161] focus:outline-none "
+                type="email"
+                className="border border-[#56B280] w-full py-2 text-[#616161] focus:outline-none indent-4"
                 placeholder="Email or mobile phone number"
                 {...register("email", { required: true })}
               />
@@ -87,52 +88,52 @@ const Details = () => {
               <input
                 type="text"
                 placeholder="Name"
-                className="placeholder:px-4 py-2 border flex-1"
+                className="py-2 border flex-1 indent-4"
                 {...register("name", { required: true })}
               />
               <input
                 type="text"
                 placeholder="Second Name"
-                className="placeholder:px-4 py-2 border flex-1"
+                className="py-2 border flex-1 indent-4"
                 {...register("SecondName", { required: true })}
               />
             </div>
             <input
               type="text"
               placeholder="Address and number"
-              className="placeholder:px-4 py-2 border"
+              className="py-2 border indent-4"
               {...register("Address", { required: true })}
             />
             <input
               type="text"
               placeholder="Shipping note (optional)"
-              className="placeholder:px-4 py-2 border"
-              {...register("ShippingNote", { required: true })}
+              className="py-2 border indent-4"
+              {...register("ShippingNote", { required: false })}
             />
             <div className="flex gap-2">
               <input
                 type="text"
                 placeholder="City"
-                className="py-2 border flex- placeholder:px-4"
+                className="py-2 border flex-1 indent-4"
                 {...register("City", { required: true })}
               />
               <input
                 type="text"
                 placeholder="Postal Code"
-                className="py-2 border flex-1 placeholder:px-4"
+                className="py-2 border flex-1 indent-4"
                 {...register("PostalCode", { required: true })}
               />
               <input
                 type="text"
                 placeholder="Province"
-                className="py-2 border flex-1 placeholder:px-4"
+                className="py-2 border flex-1 indent-4"
                 {...register("Province", { required: true })}
               />
             </div>
             <input
               type="text"
               placeholder="Country/Region"
-              className="py-2 border placeholder:px-4"
+              className="py-2 border indent-4"
               {...register("Country", { required: true })}
             />
             <div className="flex gap-2 items-center">
@@ -151,41 +152,43 @@ const Details = () => {
             </Link>
 
             <input
-            type="submit"
-            value="Go to Shipping"
-            className="w-1/2 items-center py-2 px-11 bg-[#56B280] text-white border-2 rounded-lg flex justify-center font-semibold text-xl hover:bg-white hover:border-[#56B280] hover:text-[#56B280]"
+              type="submit"
+              value="Go to Shipping"
+              className="w-1/2 items-center py-2 px-11 bg-[#56B280] text-white border-2 rounded-lg flex justify-center font-semibold text-xl hover:bg-white hover:border-[#56B280] hover:text-[#56B280]"
             />
-              {/* <button type="submit"
+            {/* <button type="submit"
               className="w-1/2 items-center py-2 px-11 bg-[#56B280] text-white border-2 rounded-lg flex justify-center font-semibold text-xl hover:bg-white hover:border-[#56B280] hover:text-[#56B280]"
               >Go to Shipping</button> */}
           </div>
         </form>
       </div>
 
-      <div className="flex-1 bg-[#F2F2F2] px-32 h-screen pt-20">
-        <div className="flex flex-col space-y-6">
-          {cart.map((item) => (
-            <div className="flex gap-16">
-              <div className="relative">
-                <img
-                  src={item.image}
-                  alt=""
-                  className="object-cover bg-[#F7F8FA]"
-                />
-                <span className="absolute -top-2 -right-2 bg-[#56B280] text-white text-sm font-semibold rounded-full h-6 w-6 flex items-center justify-center">
-                  {item.quantity}
-                </span>
+      <div className="flex-1 bg-[#F2F2F2] px-32 pt-20 h-screen">
+        <div className="flex flex-col space-y-8">
+          <ScrollArea className="p-4 h-[450px]">
+            {cart.map((item) => (
+              <div className="flex gap-16">
+                <div className="relative">
+                  <img
+                    src={item.image}
+                    alt=""
+                    className="object-cover bg-[#F7F8FA]"
+                  />
+                  <span className="absolute -top-2 -right-2 bg-[#56B280] text-white text-sm font-semibold rounded-full h-6 w-6 flex items-center justify-center">
+                    {item.quantity}
+                  </span>
+                </div>
+                <div className="flex flex-col align-top text-start">
+                  <span className="font-medium text-[#272727]">
+                    {item.description}
+                  </span>
+                  <span className="text-[#56B280] font-semibold text-xl">
+                    $ {item.price}
+                  </span>
+                </div>
               </div>
-              <div className="flex flex-col align-top text-start">
-                <span className="font-medium text-[#272727]">
-                  {item.description}
-                </span>
-                <span className="text-[#56B280] font-semibold text-xl">
-                  $ {item.price}
-                </span>
-              </div>
-            </div>
-          ))}
+            ))}
+          </ScrollArea>
           <hr className="border-[#56B280]/20" />
         </div>
 

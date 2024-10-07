@@ -35,15 +35,21 @@ const ThanksSec = () => {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage href="">Details</BreadcrumbPage>
+            <Link to="/Authentication">
+              <BreadcrumbLink className="text-[#56B280]">Details</BreadcrumbLink>
+            </Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href="">Shipping</BreadcrumbLink>
+            <Link to="/Shipping">
+              <BreadcrumbLink className="text-[#56B280]">Shipping</BreadcrumbLink>
+            </Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href="">Payment</BreadcrumbLink>
+            <Link to="/Payment">
+              <BreadcrumbLink className="text-[#56B280]">Payment</BreadcrumbLink>
+            </Link>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
@@ -62,14 +68,14 @@ const ThanksSec = () => {
             Please check your inbox in the future for your order updates.
           </span>
           <div className="flex flex-col mt-8 w-full items-center space-y-4">
-            <button className="w-1/2 items-center py-2 px-11 bg-[#56B280] text-white border-2 rounded-lg flex justify-center font-semibold text-xl hover:bg-white hover:border-[#56B280] hover:text-[#56B280]">
+            <Link to="/" className="w-1/2 items-center py-2 px-11 bg-[#56B280] text-white border-2 rounded-lg flex justify-center font-semibold text-xl hover:bg-white hover:border-[#56B280] hover:text-[#56B280]">
+            <button >
               Back to shopping
             </button>
-            <Link to="/Shipping">
+            </Link>
               <button className="underline text-[#56B280] text-lg">
                 Print receipt
               </button>
-            </Link>
           </div>
         </div>
       </div>
