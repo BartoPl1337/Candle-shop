@@ -7,12 +7,13 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { cartStore, getTotal } from "@/atom";
+import { cartStore, getTotal, userInformation } from "@/atom";
 import { useAtom } from "jotai";
 import { Link } from "react-router-dom";
 
 const ThanksSec = () => {
   const [cart, setCart] = useAtom(cartStore);
+  const [userInfo, setUserInfo] = useAtom(userInformation);
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
@@ -61,9 +62,9 @@ const ThanksSec = () => {
             className="object-cover w-[100px] h-[100px]"
           />
           <h1 className="font-medium text-3xl mt-5">Payment Confirmed</h1>
-          <span className="text-[#56B280] mt-2">ORDER #{getRandomInt(50)}</span>
+          <span className="text-[#56B280] mt-2">ORDER #{getRandomInt(1000)}</span>
           <span className="text-[#818181] text-balance text-center mt-2">
-            Thank you {} for buying Candleaf. The nature is grateful to you. Now
+            Thank you {userInfo.name} for buying Candleaf. The nature is grateful to you. Now
             that your order is confirmed it will be ready to ship in 2 days.
             Please check your inbox in the future for your order updates.
           </span>

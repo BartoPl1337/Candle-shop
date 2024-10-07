@@ -20,7 +20,10 @@ const PaymentSec = () => {
   const { register, handleSubmit } = useForm();
   const router = useNavigate();
   const onSubmit = (data) => {
-    setUserInfo(data);
+    setUserInfo((prevUserInfo) => ({
+      ...prevUserInfo,
+      ...data
+    }));
     router("/Thanks");
   };
   return (
